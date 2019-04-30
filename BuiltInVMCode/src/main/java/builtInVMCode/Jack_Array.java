@@ -29,10 +29,17 @@ public class Jack_Array extends JackOSClass {
 	public static short NEW(short size) throws TerminateVMProgramThrowable {
 		if (size <= 0)
 			callFunction("Sys.error", ARRAY_NEW_NONPOSITIVE_SIZE);
-		return callFunction("Memory.alloc", size);
+		short arr = callFunction("Memory.alloc", size + 1);
+		writeMemory(arr, size);
+		return (short)(arr + 1);
 	}
 
 	public static void dispose(short arr) throws TerminateVMProgramThrowable {
-		callFunction("Memory.deAlloc", arr);
+		callFunction("Memory.deAlloc", arr - 1);
 	}
+
+	public static short length(short arr) throws TerminateVMProgramThrowable {
+			return readMemory(arr - 1);
+	}
+
 }
