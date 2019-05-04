@@ -37,10 +37,21 @@ public class Jack_FileWriter extends JackOSClass {
         return;
     }
 
+    public static void write(short text) throws TerminateVMProgramThrowable {
+        String line = jackStringToJavaStringUsingVM(text);
+        try {
+            file.write(line);
+        } catch (java.io.IOException e) {
+            callFunction("Sys.error", FILE_IO_ERROR);
+        }
+        return;
+    }
+
     public static void writeLine(short text) throws TerminateVMProgramThrowable {
         String line = jackStringToJavaStringUsingVM(text);
         try {
             file.write(line + System.getProperty("line.separator"));
+            file.flush();
         } catch (java.io.IOException e) {
             callFunction("Sys.error", FILE_IO_ERROR);
         }
