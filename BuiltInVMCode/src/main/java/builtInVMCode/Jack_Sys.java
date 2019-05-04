@@ -110,6 +110,12 @@ public class Jack_Sys extends JackOSClass {
             case OUTPUT_MOVECURSOR_ILLEGAL_POSITION:
                 errorDescription = "Illegal cursor location";
                 break;
+            case FILE_NOT_FOUND:
+                errorDescription = "File not found";
+                break;
+            case FILE_IO_ERROR:
+                errorDescription = "Generic file IO error";
+                break;
         }
         infiniteLoop("Program Halted: " + errorDescription);
     }

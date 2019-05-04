@@ -49,6 +49,8 @@ class JackOSClass extends BuiltInVMClass {
 	public static final short STRING_ERASELASTCHAR_EMPTY = 18;
 	public static final short STRING_SETINT_INSUFFICIENT_CAPACITY = 19;
 	public static final short OUTPUT_MOVECURSOR_ILLEGAL_POSITION = 20;
+	public static final short FILE_NOT_FOUND = 21;
+	public static final short FILE_IO_ERROR = 22;
 
 	/**
 	 * Converts a java string to a Jack String by using whatever implementation

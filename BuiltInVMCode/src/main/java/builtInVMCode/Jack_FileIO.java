@@ -47,6 +47,7 @@ public class Jack_FileIO extends JackOSClass {
         String data = "";
         try {
             data = new String(Files.readAllBytes(Paths.get(filepath)));
+            data = data.replace("\r\n", Character.toString((char)NEWLINE_KEY));
             data = data.replace("\n", Character.toString((char)NEWLINE_KEY));
         } catch (java.io.IOException e) {
         }
