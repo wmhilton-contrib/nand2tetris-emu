@@ -55,6 +55,14 @@ public class Jack_Map extends JackOSClass {
         return (short)map.get(key);
     }
 
+    public static boolean containsKey(short self, short _key) throws TerminateVMProgramThrowable {
+        short index = readMemory(self);
+        Map map = maps.get(index);
+
+        String key = jackStringToJavaStringUsingVM(_key);
+        return map.containsKey(key);
+    }
+
     public static void dispose(short self) throws TerminateVMProgramThrowable {
         callFunction("Memory.deAlloc", self);
 
